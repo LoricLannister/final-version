@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "717207138828",
+    "project_id": "sos-call-120aa",
+    "storage_bucket": "sos-call-120aa.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:717207138828:android:09c73c711a672925853429",
+        "android_client_info": {
+          "package_name": "comsos.call.sos_call"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "717207138828-sg6om6j4tdfvoniq4dubfjlc4gac4fu6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB17lZcL0Vl54Mn5lCjNKDTyty3BM_pwW4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "717207138828-sg6om6j4tdfvoniq4dubfjlc4gac4fu6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
