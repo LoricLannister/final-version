@@ -129,8 +129,84 @@ class _MyHomePageState extends State<MyHomePage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
+              SizedBox(height: 20),
+              Align(
+                alignment: Alignment.centerRight,
+                child: Padding(
+                  padding: const EdgeInsets.only(right: 10),
+                  child: IconButton(
+                    onPressed: () {
+                      showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return Dialog(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.fromLTRB(25, 8, 25, 8),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  SizedBox(height: 12),
+                                  Text(
+                                    "Warning",
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 18,
+                                    ),
+                                  ),
+                                  SizedBox(height: 12),
+                                  Text(
+                                    "Do you want to logout?",
+                                    textAlign: TextAlign.center,
+                                  ),
+                                  SizedBox(height: 12),
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      ElevatedButton(
+                                        onPressed: () {
+                                          Navigator.pop(context);
+                                        },
+                                        child: Text("Cancel"),
+                                      ),
+                                      ElevatedButton(
+                                        onPressed: () async {
+                                          Navigator.pop(context);
+                                          await FirebaseAuth.instance
+                                              .signOut()
+                                              .then(
+                                                (value) => Navigator
+                                                    .pushAndRemoveUntil(
+                                                        context,
+                                                        MaterialPageRoute(
+                                                          builder: (context) =>
+                                                              Login(),
+                                                        ),
+                                                        (route) => false),
+                                              );
+                                        },
+                                        child: Text("OK"),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                          );
+                        },
+                      );
+                    },
+                    icon: Icon(Icons.logout),
+                    color: Color(0xFFFF2121),
+                    iconSize: 32,
+                  ),
+                ),
+              ),
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(15, 55, 15, 5),
+                padding: const EdgeInsetsDirectional.fromSTEB(15, 35, 15, 5),
                 child: SizedBox(
                   height: 80,
                   child: ListTile(
@@ -268,7 +344,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(top: 70, bottom: 10),
+                padding: const EdgeInsets.only(top: 40, bottom: 10),
                 child: Container(
                   height: 80,
                   width: 80,

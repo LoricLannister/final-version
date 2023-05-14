@@ -23,6 +23,7 @@ class _SignupState extends State<Signup> {
   final TextEditingController medicalProblems = TextEditingController();
   final TextEditingController email = TextEditingController();
   final TextEditingController password = TextEditingController();
+  final TextEditingController passportId = TextEditingController();
   final _auth = FirebaseAuth.instance;
   bool showPassword = false;
   bool loading = false;
@@ -47,6 +48,7 @@ class _SignupState extends State<Signup> {
         "gender": _genderType == 1 ? "Male" : "Female",
         "e-mail": email,
         "password": password,
+        "passportId": passportId.text,
       });
       Navigator.pushAndRemoveUntil(
         context,
@@ -506,6 +508,61 @@ class _SignupState extends State<Signup> {
               ),
             ),
             const SizedBox(height: 30),
+
+            Padding(
+              padding: const EdgeInsets.only(left: 20),
+              child: Text(
+                'Enter your passport id',
+                style: TextStyle(
+                  fontFamily: 'Poppins',
+                  fontSize: 13,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 20, right: 20, top: 10),
+              child: Container(
+                height: 48,
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    color: Color(0xFFFF2121),
+                  ),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 10),
+                  child: TextFormField(
+                    controller: passportId,
+                    onChanged: (value) {
+                      setState(() {});
+                    },
+                    decoration: InputDecoration(
+                      hintText: "PassportID",
+                      border: InputBorder.none,
+                      prefixIcon:
+                      Icon(Icons.place, color: Colors.grey, size: 20),
+                      suffixIcon: passportId.text.isEmpty
+                          ? null
+                          : IconButton(
+                        onPressed: () {
+                          setState(() {
+                            passportId.text = "";
+                          });
+                        },
+                        icon: Icon(
+                          Icons.clear,
+                          color: Colors.grey,
+                          size: 20,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(height: 30),
+
             Padding(
               padding: const EdgeInsets.only(left: 20),
               child: Text(
